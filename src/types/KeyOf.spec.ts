@@ -4,18 +4,18 @@ import show from '../show';
 const StringObjectKeys = {
   foo: 1,
   bar: 2,
-}
+};
 
 const NumbericObjectKeys = {
   2: 1,
-  4: "2",
-}
+  4: '2',
+};
 
 const MixedObjectKeys = {
-  foo: "bar",
+  foo: 'bar',
   5: 1,
-  "4": 3,
-}
+  '4': 3,
+};
 
 test('Numeric Object Keys', () => {
   expect(KeyOf('NumericKeys', NumbericObjectKeys).safeParse(2)).toMatchInlineSnapshot(`
@@ -24,7 +24,7 @@ test('Numeric Object Keys', () => {
       "value": 2,
     }
   `);
-  expect(KeyOf('NumericKeys', NumbericObjectKeys).safeParse("2")).toMatchInlineSnapshot(`
+  expect(KeyOf('NumericKeys', NumbericObjectKeys).safeParse('2')).toMatchInlineSnapshot(`
     Object {
       "success": true,
       "value": "2",
@@ -36,7 +36,7 @@ test('Numeric Object Keys', () => {
       "success": false,
     }
   `);
-  expect(KeyOf('NumericKeys', NumbericObjectKeys).safeParse("5")).toMatchInlineSnapshot(`
+  expect(KeyOf('NumericKeys', NumbericObjectKeys).safeParse('5')).toMatchInlineSnapshot(`
     Object {
       "message": "Expected NumericKeys, but was \\"5\\"",
       "success": false,
@@ -82,7 +82,7 @@ test('Mixed Object Keys', () => {
       "value": 5,
     }
   `);
-  expect(KeyOf('MixedKeys', MixedObjectKeys).safeParse("foobar")).toMatchInlineSnapshot(`
+  expect(KeyOf('MixedKeys', MixedObjectKeys).safeParse('foobar')).toMatchInlineSnapshot(`
     Object {
       "message": "Expected MixedKeys, but was \\"foobar\\"",
       "success": false,
